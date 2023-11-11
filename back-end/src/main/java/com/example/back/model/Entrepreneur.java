@@ -5,11 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name="Entrepreneur")
 public class Entrepreneur {
 
     @Id
@@ -29,4 +30,7 @@ public class Entrepreneur {
 
     @Column(nullable = false)
     private String password;
+
+    @ManyToMany(mappedBy = "enrolledEntrepreneurs")
+    private List<Course> courses;
 }

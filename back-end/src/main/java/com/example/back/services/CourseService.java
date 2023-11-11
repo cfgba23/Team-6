@@ -13,5 +13,5 @@ public interface CourseService {
 
     CourseDTO getClosestToStart(CourseDTO courseDTO, Long userId);
 
-    CourseDTO getMostAdvancedIn(CourseDTO courseDTO, Long userId);
+    CourseDTO getMostAdvancedIn(CourseDTO createCourseDTO, Long userId);
 }

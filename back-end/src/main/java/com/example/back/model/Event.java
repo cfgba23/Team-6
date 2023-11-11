@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Getter
@@ -34,5 +37,14 @@ public class Event {
     
     @Column()
     private modality modality;
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "event_entrepreneur",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "entrepreneur_id")
+    )
+    @JsonIgnore
+    private List<Entrepreneur> enrolledEntrepreneurs;
     
 }

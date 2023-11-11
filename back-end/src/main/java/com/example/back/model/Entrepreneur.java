@@ -51,4 +51,8 @@ public class Entrepreneur {
 
     @ManyToMany(mappedBy = "enrolledEntrepreneurs")
     private List<Course> courses;
+    
+    @ManyToMany(mappedBy = "enrolledEntrepreneurs")
+    private List<Event> event;
+    
 }

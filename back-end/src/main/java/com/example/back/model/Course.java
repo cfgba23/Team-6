@@ -1,5 +1,6 @@
 package com.example.back.model;
 
+import com.example.back.dtos.CourseDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,22 +23,38 @@ public class Course {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private LocalDateTime createdAt;
+
     private LocalDateTime startDate;
 
     private LocalDateTime endEnrollDate;
 
     private int maxEnroll;
 
-    private String Category;
+    private String category;
 
     private String urlContent;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "course_entrepreneur",
+            name = "EntrepreneurCourse",
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "entrepreneur_id")
     )
     @JsonIgnore
     private List<Entrepreneur> enrolledEntrepreneurs;
+
+    public CourseDTO toDTO(){
+        CourseDTO dto = new CourseDTO();
+        dto.setId(this.id);
+        dto.setName(this.name);
+        dto.setCreatedAt(this.createdAt);
+        dto.setStartDate(this.startDate);
+        dto.setEndEnrollDate(this.endEnrollDate);
+        dto.setMaxEnroll(this.maxEnroll);
+        dto.setCategory(this.category);
+        dto.setUrlContent(this.urlContent);
+        return dto;
+    }
 }

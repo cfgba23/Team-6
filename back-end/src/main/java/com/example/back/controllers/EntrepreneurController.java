@@ -1,6 +1,5 @@
 package com.example.back.controllers;
 
-import com.example.back.dtos.CreateCourseDTO;
 import com.example.back.dtos.CreateEntrepreneurDTO;
 import com.example.back.services.impl.EntrepreneurService;
 import lombok.RequiredArgsConstructor;

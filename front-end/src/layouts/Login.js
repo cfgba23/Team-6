@@ -5,11 +5,11 @@ import PerfectScrollbar from "perfect-scrollbar";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import Footer from "components/Footer/Footer.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
+//import FixedPlugin from "components/FixedPlugin/FixedPlugin.js";
 
 import routes from "routes.js";
 
-import logo from "assets/img/react-logo.png";
+import logo from "assets/img/pTgC-dYY_400x400.jpg";
 import { BackgroundColorContext } from "contexts/BackgroundColorContext";
 
 var ps;
@@ -32,7 +32,6 @@ function Admin(props) {
         ps = new PerfectScrollbar(tables[i]);
       }
     }
-    // Specify how to clean up after this effect:
     return function cleanup() {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
@@ -61,7 +60,7 @@ function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout !== "/admin") {
         return (
           <Route path={prop.path} element={prop.component} key={key} exact />
         );
@@ -86,8 +85,8 @@ function Admin(props) {
             <Sidebar
               routes={routes}
               logo={{
-                outterLink: "https://www.creative-tim.com/",
-                text: "Creative Tim",
+                outterLink: "https://www.mujeres2000.org.ar/",
+                text: "2000 MUJERES",
                 imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}
@@ -102,7 +101,7 @@ function Admin(props) {
                 {getRoutes(routes)}
                 <Route
                   path="/"
-                  element={<Navigate to="/admin/dashboard" replace />}
+                  element={<Navigate to="/home" replace />}
                 />
               </Routes>
               {
@@ -110,7 +109,7 @@ function Admin(props) {
               }
             </div>
           </div>
-          <FixedPlugin bgColor={color} handleBgClick={changeColor} />
+          {/* <FixedPlugin bgColor={color} handleBgClick={changeColor} /> */}
         </React.Fragment>
       )}
     </BackgroundColorContext.Consumer>

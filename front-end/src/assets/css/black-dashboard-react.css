@@ -4074,7 +4074,7 @@ input[type="button"].btn-block {
   ~ .custom-control-label::before {
   border-color: #e14eca;
   background-color: #e14eca;
-  box-shadow: ;
+ /*  box-shadow: ; */
 }
 
 .custom-checkbox
@@ -15992,7 +15992,7 @@ h2,
 
 h3,
 .h3 {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   line-height: 1.4em;
 }
 

@@ -21,4 +21,9 @@ public class CourseController {
     public ResponseEntity<CreateCourseDTO> createUserAuction(@RequestBody CreateCourseDTO createCourseDTO){
         return new ResponseEntity<CreateCourseDTO>(courseService.createCourse(createCourseDTO), HttpStatus.CREATED);
     }
+
+    // cursos inscriptos
+    // curso mas avanzado
+    // curso mas proximo a ocurrir
+    // todos los cursos en los que no esta incripto
 }

@@ -1,6 +1,4 @@
 import React from "react";
-
-// reactstrap components
 import { Button, Dropdown, DropdownToggle, Badge } from "reactstrap";
 import { ThemeContext, themes } from "contexts/ThemeContext";
 import { backgroundColors } from "contexts/BackgroundColorContext";

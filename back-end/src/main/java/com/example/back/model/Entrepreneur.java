@@ -41,7 +41,7 @@ public class Entrepreneur {
     private String province;
     
     @Column()
-    private String educationLevel;
+    private education educationLevel;
     
     @Column(unique = true, nullable = false)
     private String email;

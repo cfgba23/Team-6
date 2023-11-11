@@ -50,13 +50,16 @@ function Home(props) {
                   
                 </Row>
               </CardHeader>
-              <CardBody>
-                <div>
-                  <div>
-                    
-                  </div>
+              <CardBody className="row">
+                <div className="col-4" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                  <img src={require("../assets/img/programa1.png")} alt="programa 1" />
                 </div>
-                
+                <div className="col-4" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                  <img src={require("../assets/img/programa2.png")} alt="programa 1" />
+                </div>
+                <div className="col-4" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                  <img src={require("../assets/img/programa3.png")} alt="programa 1" />
+                </div>
               </CardBody>
             </Card>
           </Col>

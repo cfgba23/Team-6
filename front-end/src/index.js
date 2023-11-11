@@ -11,7 +11,6 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import ThemeContextWrapper from "./components/ThemeWrapper/ThemeWrapper";
 import BackgroundColorWrapper from "./components/BackgroundColorWrapper/BackgroundColorWrapper";
-import Login from "layouts/Login.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

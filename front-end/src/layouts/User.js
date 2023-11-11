@@ -86,7 +86,7 @@ function Admin(props) {
               routes={routes}
               logo={{
                 outterLink: "https://www.mujeres2000.org.ar/",
-                text: "2000 MUJERES",
+                text: "MUJERES 2000",
                 imgSrc: logo,
               }}
               toggleSidebar={toggleSidebar}

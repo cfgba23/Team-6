@@ -1,5 +1,6 @@
 package com.example.back.model;
 
+import com.example.back.dtos.SafeEntrepreneurDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,4 +34,18 @@ public class Entrepreneur {
 
     @ManyToMany(mappedBy = "enrolledEntrepreneurs")
     private List<Course> courses;
+
+    @ManyToMany(mappedBy = "enrolledEntrepreneurs")
+    private List<Event> events;
+
+
+    public SafeEntrepreneurDTO toDTO(){
+        SafeEntrepreneurDTO dto = new SafeEntrepreneurDTO();
+        dto.setId(id);
+        dto.setName(name);
+        dto.setLastName(lastName);
+        dto.setEmail(email);
+        dto.setPhoneNumber(phoneNumber);
+        return dto;
+    }
 }

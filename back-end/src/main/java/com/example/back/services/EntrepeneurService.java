@@ -1,7 +1,10 @@
 package com.example.back.services;
 
-import com.example.back.dtos.CreateEntrepreneurDTO;
+import com.example.back.dtos.EntrepreneurDTO;
+import com.example.back.dtos.SafeEntrepreneurDTO;
 
 public interface EntrepeneurService {
-    CreateEntrepreneurDTO createEntrepreneur(CreateEntrepreneurDTO createEntrepreneurDTO);
+    SafeEntrepreneurDTO createEntrepreneur(EntrepreneurDTO createEntrepreneurDTO);
+
+    SafeEntrepreneurDTO logIn(EntrepreneurDTO createEntrepreneurDTO);
 }

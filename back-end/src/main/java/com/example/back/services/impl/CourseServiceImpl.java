@@ -31,27 +31,38 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public CourseDTO createCourse(CourseDTO courseDTO) {
-        return null;
+        Course course = courseDTO.toCourse();
+        Course savedCourse = courseRepository.save(course);
+        courseDTO.setId(savedCourse.getId());
+        return courseDTO;
     }
 
     @Override
-    public List<CourseDTO> getEnrolledIn(CourseDTO courseDTO, Long userId) {
+    public List<CourseDTO> getEnrolledIn(Long userId) {
         return courseRepository.findByEnrolledEntrepreneurs_Id(userId).stream().map(Course::toDTO).collect(Collectors.toList());
       }
 
     @Override
-    public List<CourseDTO> getAvailableToEnrollIn(CourseDTO courseDTO, Long userId) {
+    public List<CourseDTO> getAvailableToEnrollIn(Long userId) {
         return courseRepository.findByEnrolledEntrepreneurs_IdNot(userId).stream().map(Course::toDTO).collect(Collectors.toList());
     }
 
     @Override
-    public CourseDTO getClosestToStart(CourseDTO courseDTO, Long userId) {
+    public CourseDTO getClosestToStart(Long userId) {
         return null;
     }
 
     @Override
-    public CourseDTO getMostAdvancedIn(CourseDTO courseDTO, Long userId) {
+    public CourseDTO getMostAdvancedIn(Long userId) {
         EntrepreneurCourse entrepreneurCourse = entrepreneurCourseRepository.findByUser_Id(userId).stream().max(EntrepreneurCourse::compareTo).orElse(null);
         return entrepreneurCourse.getCourse().toDTO();
+    }
+
+    @Override
+    public CourseDTO enroll(Long userId, Long courseId){
+        Course course = courseRepository.findById(courseId).orElse(null);
+        course.getEnrolledEntrepreneurs().add(entrepreneurRepository.findById(userId).orElse(null));
+        courseRepository.save(course);
+        return course.toDTO();
     }
 }
